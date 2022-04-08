@@ -5,7 +5,7 @@
 //  Created by Abdurrahman Alboghdady on 08/04/2022.
 //
 
-import Foundation
+import UIKit
 
 protocol Coordinator {
     var parentCoordinator: Coordinator? { get set }

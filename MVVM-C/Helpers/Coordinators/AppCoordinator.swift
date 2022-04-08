@@ -22,7 +22,7 @@ class AppCoordinator: Coordinator {
         goToLeagues()
     }
     
-    func goToLeagues(){
+    func goToLeagues() {
         // Instantiate Logi
         let leaguesVC = UIStoryboard.instantiate(.leagues, .leaguesVC) as! LeaguesViewController
         // Instantiate LoginViewModel
@@ -35,7 +35,7 @@ class AppCoordinator: Coordinator {
         navigationController.pushViewController(leaguesVC, animated: true)
     }
     
-    func goToTeams(){
+    func goToTeams(id: Int) {
         // Instantiate Logi
         let leaguesVC = UIStoryboard.instantiate(.leagues, .leaguesVC) as! TeamsViewController
         // Instantiate LoginViewModel
@@ -48,7 +48,7 @@ class AppCoordinator: Coordinator {
         navigationController.pushViewController(leaguesVC, animated: true)
     }
     
-    func goToTeam(){
+    func goToTeam() {
         // Instantiate Logi
         let leaguesVC = UIStoryboard.instantiate(.leagues, .leaguesVC) as! TeamsViewController
         // Instantiate LoginViewModel
