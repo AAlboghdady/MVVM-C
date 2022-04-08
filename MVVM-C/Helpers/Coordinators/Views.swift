@@ -27,7 +27,7 @@ enum StoryBoardVCIds: String {
 
 
 enum StoryBoardCells: String {
-    case leageCell = "LeagueCell"
+    case leagueCell = "LeagueCell"
     case teamCell = "TeamCell"
 }
 
