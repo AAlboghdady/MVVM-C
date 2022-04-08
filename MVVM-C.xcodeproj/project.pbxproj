@@ -249,7 +249,7 @@
 		15B093E627FFAC6400A54E13 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				15B093F127FFAC8B00A54E13 /* TeamViewController.swift */,
+				15B093EF27FFAC8600A54E13 /* TeamsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -298,7 +298,7 @@
 		15B093EC27FFAC6400A54E13 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				15B093EF27FFAC8600A54E13 /* TeamsViewController.swift */,
+				15B093F127FFAC8B00A54E13 /* TeamViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
