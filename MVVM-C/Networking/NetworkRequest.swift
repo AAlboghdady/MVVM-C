@@ -15,6 +15,7 @@ var Network = NetworkRequest()
 class NetworkRequest {
     
     let disposeBag = DisposeBag()
+    let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
     
     func sendRequest<T: Codable>(function: ApiManager, model: T.Type, showLoading: Bool = true,
                                   success: @escaping(_ model: T)->(), failure:@escaping (_ errors:String)->()) {
@@ -22,15 +23,15 @@ class NetworkRequest {
         case .unknown, .offline:
             self.showConnectionErrorAlert()
         case .online(.wwan), .online(.wiFi):
-//            showLoading()
+            self.showLoading()
             let provider = MoyaProvider<ApiManager>()
             provider.rx.request(function)
                 .map(T.self)
                 .subscribe { (value) in
-//                    hideLoading()
+                    self.hideLoading()
                     success(value)
                 } onFailure: { (error) in
-//                    hideLoading()
+                    self.hideLoading()
                     print(error.localizedDescription)
                     failure(error.localizedDescription)
                 }.disposed(by: disposeBag)
@@ -41,12 +42,25 @@ class NetworkRequest {
         let alert = UIAlertController(title: "Error", message: "No internet connection", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Click", style: .default, handler: nil))
         let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-        
         if var topController = keyWindow?.rootViewController {
             while let presentedViewController = topController.presentedViewController {
                 topController = presentedViewController
                 topController.present(alert, animated: true, completion: nil)
             }
         }
+    }
+    
+    func showLoading() {
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = .medium
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        Constants.uWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    func hideLoading() {
+        alert.dismiss(animated: true)
     }
 }
