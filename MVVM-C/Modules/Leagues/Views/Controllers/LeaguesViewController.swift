@@ -48,20 +48,19 @@ class LeaguesViewController: UIViewController {
     }
     
     func subscribeToLaegues() {
-        // tableView
+        // tableView cells
         viewModel.leaguesObservable
-            .bind(to: tableView
-                .rx
-                .items(cellIdentifier: StoryBoardCells.leagueCell.rawValue,
-                       cellType: LeagueCell.self)) { _, item, cell in
+            .bind(to: tableView.rx.items) { (tableView, row, item) in
+                let cell = tableView.dequeueReusableCell(withIdentifier: StoryBoardCells.leagueCell.rawValue, for: IndexPath(row: row, section: 0)) as! LeagueCell
                 cell.configure(league: item)
+                return cell
             }
             .disposed(by: disposeBag)
-        
-        tableView.rx.modelSelected(String.self)
+        // tableview model selected
+        tableView.rx.modelSelected(Competition.self)
             .subscribe(onNext: { [weak self] item in
                 guard let self = self else { return }
-                self.viewModel.goToTeams()
+                self.viewModel.goToTeams(id: 0)
             })
             .disposed(by: disposeBag)
     }

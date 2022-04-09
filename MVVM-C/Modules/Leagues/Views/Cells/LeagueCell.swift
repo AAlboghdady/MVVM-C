@@ -9,7 +9,7 @@ import UIKit
 
 class LeagueCell: UITableViewCell {
     
-    private var league: String?
+    private var league: Competition?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,15 +22,15 @@ class LeagueCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(league: String) {
+    func configure(league: Competition) {
         self.league = league
         addLeagueView(league: league)
     }
     
-    func addLeagueView(league: String) {
+    func addLeagueView(league: Competition) {
         let controller = UIStoryboard.instantiate(.leagues, .leagueView) as! LeagueView
         controller.view.frame = CGRect(x: 8, y: 8, width: contentView.frame.size.width - 16, height: contentView.frame.size.height - 16)
-        controller.setupViews(name: league, image: "")
+        controller.setupViews(name: league.name ?? "", image: "")
         contentView.addSubview(controller.view)
     }
 }

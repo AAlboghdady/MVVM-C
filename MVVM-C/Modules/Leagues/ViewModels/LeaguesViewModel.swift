@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxCocoa
+import Moya
 
 class LeaguesViewModel: NSObject {
     
@@ -15,8 +16,8 @@ class LeaguesViewModel: NSObject {
 
     var loadingBehavior = BehaviorRelay<Bool>(value: false)
     
-    private var leaguesSubject = PublishSubject<[String]>()
-    var leaguesObservable: Observable<[String]> {
+    private var leaguesSubject = PublishSubject<[Competition]>()
+    var leaguesObservable: Observable<[Competition]> {
         return leaguesSubject
     }
     
@@ -26,10 +27,18 @@ class LeaguesViewModel: NSObject {
     }
     
     func loadLeagues() {
-        leaguesSubject.onNext(["Asdasd", "asdasdasd"])
+        Network.sendRequest(function: .competitions, model: CompetitionsResponse.self) { [weak self] response in
+            guard let self = self,
+            let competitions = response.competitions else { return }
+            self.leaguesSubject.onNext(competitions)
+        } failure: { [weak self] error in
+            guard let self = self else { return }
+            print(error)
+            self.errorMessageSubject.onNext(error)
+        }
     }
     
-    func goToTeams() {
-        coordinator.goToTeams()
+    func goToTeams(id: Int) {
+        coordinator.goToTeams(id: id)
     }
 }
