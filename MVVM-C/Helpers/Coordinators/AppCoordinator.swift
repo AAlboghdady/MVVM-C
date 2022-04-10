@@ -37,10 +37,11 @@ class AppCoordinator: Coordinator {
     func goToTeams(league: Competition) {
         // Instantiate TeamsViewController
         let teamsVC = UIStoryboard.instantiate(.teams, .teams) as! TeamsViewController
+        // Set the id to the ViewController
         teamsVC.league = league
         // Instantiate ViewModel
         let teamsViewModel = TeamsViewModel.init()
-        // Set the id to the ViewController
+        // Set the id to the ViewModel
         teamsViewModel.competitionId = league.id!
         // Set the ViewModel to ViewController
         teamsVC.viewModel = teamsViewModel
@@ -48,15 +49,17 @@ class AppCoordinator: Coordinator {
         navigationController.pushViewController(teamsVC, animated: true)
     }
     
-    func goToTeam(id: Int) {
+    func goToTeam(team: Team) {
         // Instantiate TeamsViewController
         let teamVC = UIStoryboard.instantiate(.team, .team) as! TeamViewController
-        // Instantiate ViewModel
-        let teamViewModel = LeaguesViewModel.init()
         // Set the id to the ViewController
-//        teamsViewModel.competitionId = id
+        teamVC.team = team
+        // Instantiate ViewModel
+        let teamViewModel = TeamViewModel.init()
+        // Set the id to the ViewModel
+        teamViewModel.teamId = team.id!
         // Set the ViewModel to ViewController
-//        leaguesVC.viewModel = leaguesViewModel
+        teamVC.viewModel = teamViewModel
         // Push it.
         navigationController.pushViewController(teamVC, animated: true)
     }

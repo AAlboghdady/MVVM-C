@@ -25,12 +25,14 @@ enum StoryBoardVCIds: String {
     
     // team
     case team = "TeamViewController"
+    case matchView = "MatchView"
 }
 
 
 enum StoryBoardCells: String {
     case leagueCell = "LeagueCell"
     case teamCell = "TeamCell"
+    case matchCell = "MatchCell"
 }
 
 extension UIStoryboard {

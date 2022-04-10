@@ -1,23 +1,23 @@
 //
-//  TeamsViewModel.swift
+//  TeamViewModel.swift
 //  MVVM-C
 //
-//  Created by Abdurrahman Alboghdady on 09/04/2022.
+//  Created by Abdurrahman Alboghdady on 10/04/2022.
 //
 
 import RxSwift
 import RxCocoa
 
-class TeamsViewModel: NSObject {
+class TeamViewModel: NSObject {
     
     private let disposeBag = DisposeBag()
-    var competitionId = 0
+    var teamId = 0
     
     var loadingBehavior = BehaviorRelay<Bool>(value: false)
     
-    private var teamsSubject = PublishSubject<[Team]>()
-    var teamsObservable: Observable<[Team]> {
-        return teamsSubject
+    private var matchesSubject = PublishSubject<[Match]>()
+    var matchesObservable: Observable<[Match]> {
+        return matchesSubject
     }
     
     private var errorMessageSubject = PublishSubject<String>()
@@ -25,27 +25,23 @@ class TeamsViewModel: NSObject {
         return errorMessageSubject
     }
     
-    func loadTeams() {
+    func loadMathces() {
         loadingBehavior.accept(true)
-        NetworkRequest.shared.sendRequest(function: .teams(competitionId: competitionId), model: TeamsResponse.self) { [weak self] response in
+        NetworkRequest.shared.sendRequest(function: .matches(teamId: teamId), model: TeamResponse.self) { [weak self] response in
             guard let self = self else { return }
             self.loadingBehavior.accept(false)
-            guard let teams = response.teams else {
+            guard let teams = response.matches else {
                 print(response.message ?? "")
                 self.errorMessageSubject.onNext(response.message ?? "")
                 return
             }
-            self.teamsSubject.onNext(teams)
+            self.matchesSubject.onNext(teams)
         } failure: { [weak self] error in
             guard let self = self else { return }
             self.loadingBehavior.accept(false)
             print(error)
             self.errorMessageSubject.onNext(error)
         }
-    }
-    
-    func goToTeam(team: Team) {
-        AppCoordinator.shared.goToTeam(team: team)
     }
 }
 

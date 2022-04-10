@@ -21,8 +21,6 @@ class NetworkRequest {
         case .unknown, .offline:
             self.showConnectionErrorAlert()
         case .online(.wwan), .online(.wiFi):
-//            self.showLoading()
-//            Loading.shared.showLoading()
             let provider = MoyaProvider<ApiManager>()
             provider.rx.request(function)
                 .map(T.self)

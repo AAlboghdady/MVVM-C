@@ -71,7 +71,7 @@ class TeamsViewController: UIViewController {
         tableView.rx.modelSelected(Team.self)
             .subscribe(onNext: { [weak self] item in
                 guard let self = self else { return }
-                self.viewModel.goToTeam(id: 0)
+                self.viewModel.goToTeam(team: item)
             })
             .disposed(by: disposeBag)
     }

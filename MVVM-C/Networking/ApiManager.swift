@@ -27,7 +27,7 @@ extension ApiManager: TargetType {
         case .teams(let competitionId):
             return "competitions/\(competitionId)/teams"
         case .matches(let teamId):
-            return "teams/\(teamId)matches"
+            return "teams/\(teamId)/matches"
         }
     }
     
