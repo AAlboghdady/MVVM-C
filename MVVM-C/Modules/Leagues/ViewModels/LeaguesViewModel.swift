@@ -11,9 +11,8 @@ import Moya
 
 class LeaguesViewModel: NSObject {
     
-    weak var coordinator: AppCoordinator!
     private let disposeBag = DisposeBag()
-
+    
     var loadingBehavior = BehaviorRelay<Bool>(value: false)
     
     private var leaguesSubject = PublishSubject<[Competition]>()
@@ -27,18 +26,29 @@ class LeaguesViewModel: NSObject {
     }
     
     func loadLeagues() {
-        Network.sendRequest(function: .competitions, model: CompetitionsResponse.self) { [weak self] response in
-            guard let self = self,
-            let competitions = response.competitions else { return }
+        loadingBehavior.accept(true)
+        NetworkRequest.shared.sendRequest(function: .competitions, model: CompetitionsResponse.self) { [weak self] response in
+            guard let self = self else { return }
+            self.loadingBehavior.accept(false)
+            guard let competitions = response.competitions else {
+                print(response.message ?? "")
+                self.errorMessageSubject.onNext(response.message ?? "")
+                return
+            }
             self.leaguesSubject.onNext(competitions)
         } failure: { [weak self] error in
             guard let self = self else { return }
+            self.loadingBehavior.accept(false)
             print(error)
             self.errorMessageSubject.onNext(error)
         }
     }
     
-    func goToTeams(id: Int) {
-        coordinator.goToTeams(id: id)
+    func goToTeams(league: Competition) {
+        AppCoordinator.shared.goToTeams(league: league)
+    }
+    
+    func dispose() {
+        
     }
 }

@@ -17,6 +17,9 @@ target 'MVVM-C' do
   #Loading Images
   pod 'Nuke'
   pod 'SVGKit'
+  
+  #loading indicator
+  pod 'ProgressHUD'
 
   target 'MVVM-CTests' do
     inherit! :search_paths

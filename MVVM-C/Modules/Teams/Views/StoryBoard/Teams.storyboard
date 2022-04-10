@@ -69,10 +69,68 @@
                             <constraint firstItem="2RD-Wo-OMg" firstAttribute="top" secondItem="s9s-Ux-WYb" secondAttribute="bottom" constant="16" id="wMT-yX-Ql4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="leagueView" destination="s9s-Ux-WYb" id="aNW-Jz-ZMp"/>
+                        <outlet property="tableView" destination="Vj5-Wk-rhA" id="VNe-Ig-WDx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ful-CX-khh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1689.8550724637682" y="77.678571428571431"/>
+        </scene>
+        <!--Team View-->
+        <scene sceneID="TMR-Bs-DWK">
+            <objects>
+                <viewController storyboardIdentifier="TeamView" id="ZD6-g5-GpN" customClass="TeamView" customModule="MVVM_C" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="arX-18-oFC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMb-Tv-OK5">
+                                <rect key="frame" x="8" y="8" width="398" height="134"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vBz-Ug-x6H">
+                                        <rect key="frame" x="8" y="8" width="118" height="118"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="vBz-Ug-x6H" secondAttribute="height" id="Nmk-Y8-iFU"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eF-9t-PD8">
+                                        <rect key="frame" x="142" y="57" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="vBz-Ug-x6H" firstAttribute="top" secondItem="gMb-Tv-OK5" secondAttribute="top" constant="8" id="Jqg-VB-sqw"/>
+                                    <constraint firstItem="1eF-9t-PD8" firstAttribute="centerY" secondItem="gMb-Tv-OK5" secondAttribute="centerY" id="X25-At-Owa"/>
+                                    <constraint firstItem="1eF-9t-PD8" firstAttribute="leading" secondItem="vBz-Ug-x6H" secondAttribute="trailing" constant="16" id="XoJ-w0-wOU"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1eF-9t-PD8" secondAttribute="trailing" id="g3S-lm-NOU"/>
+                                    <constraint firstItem="vBz-Ug-x6H" firstAttribute="leading" secondItem="gMb-Tv-OK5" secondAttribute="leading" constant="8" id="mJa-XP-uzd"/>
+                                    <constraint firstItem="vBz-Ug-x6H" firstAttribute="centerY" secondItem="gMb-Tv-OK5" secondAttribute="centerY" id="mVp-3K-UiE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="C66-Qd-ssc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gMb-Tv-OK5" firstAttribute="centerX" secondItem="arX-18-oFC" secondAttribute="centerX" id="Naj-36-Tfr"/>
+                            <constraint firstItem="gMb-Tv-OK5" firstAttribute="leading" secondItem="arX-18-oFC" secondAttribute="leading" constant="8" id="Tfz-fE-glS"/>
+                            <constraint firstItem="gMb-Tv-OK5" firstAttribute="top" secondItem="arX-18-oFC" secondAttribute="top" constant="8" id="ahO-Hy-JSk"/>
+                            <constraint firstItem="gMb-Tv-OK5" firstAttribute="centerY" secondItem="arX-18-oFC" secondAttribute="centerY" id="iVE-7T-jzU"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="150"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="1eF-9t-PD8" id="O72-CJ-hdR"/>
+                        <outlet property="teamImageView" destination="vBz-Ug-x6H" id="aDT-lL-1GQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e7b-bB-3TW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1690" y="-364"/>
         </scene>
     </scenes>
     <resources>

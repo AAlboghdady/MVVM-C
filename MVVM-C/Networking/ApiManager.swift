@@ -8,12 +8,10 @@
 import Moya
 import Alamofire
 
-let ApiProvider = MoyaProvider<ApiManager>()
-
 enum ApiManager {
     case competitions
-    case teams(competition: Int)
-    case matches(team: Int)
+    case teams(competitionId: Int)
+    case matches(teamId: Int)
 }
 
 // MARK: - TargetType Protocol Implementation
@@ -26,10 +24,10 @@ extension ApiManager: TargetType {
         switch self {
         case .competitions:
             return "competitions"
-        case .teams(let competition):
-            return "competitions/\(competition)/teams"
-        case .matches(let team):
-            return "teams/\(team)matches"
+        case .teams(let competitionId):
+            return "competitions/\(competitionId)/teams"
+        case .matches(let teamId):
+            return "teams/\(teamId)matches"
         }
     }
     
@@ -51,7 +49,12 @@ extension ApiManager: TargetType {
     
     var headers: [String: String]? {
         var headers = [String: String]()
-        headers["X-Auth-Token"] = Constants.authToken
+        switch self {
+        case .teams, .matches:
+            headers["X-Auth-Token"] = Constants.authToken
+        default:
+            break
+        }
         return headers
     }
     

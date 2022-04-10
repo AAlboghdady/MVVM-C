@@ -12,27 +12,24 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
+
 struct Competition : Codable {
+    
 	let id : Int?
-//	let area : Area?
 	let name : String?
-//	let code : String?
-//	let emblemUrl : String?
-//	let plan : String?
-//	let currentSeason : CurrentSeason?
-//	let numberOfAvailableSeasons : Int?
-//	let lastUpdated : String?
 
 	enum CodingKeys: String, CodingKey {
-
 		case id = "id"
-//		case area = "area"
 		case name = "name"
-//		case code = "code"
-//		case emblemUrl = "emblemUrl"
-//		case plan = "plan"
-//		case currentSeason = "currentSeason"
-//		case numberOfAvailableSeasons = "numberOfAvailableSeasons"
-//		case lastUpdated = "lastUpdated"
 	}
+    
+    init(id: Int?, name: String?) {
+        self.id = id
+        self.name = name
+    }
+    
+    init() {
+        id = 0
+        name = ""
+    }
 }

@@ -23,7 +23,7 @@ class LeaguesViewController: UIViewController {
         subscribeToLoading()
         subscribeToErrorMessage()
         
-        subscribeToLaegues()
+        subscribeToLeagues()
         
         viewModel.loadLeagues()
     }
@@ -37,17 +37,17 @@ class LeaguesViewController: UIViewController {
     
     func subscribeToLoading() {
         viewModel.loadingBehavior.subscribe { (isLoading) in
-//            self.showLoading(isLoading)
+            self.showLoading(isLoading)
         }.disposed(by: disposeBag)
     }
     
     func subscribeToErrorMessage() {
         viewModel.errorMessageObservable.subscribe { (error) in
-//            self.showAlertError(subTitle: error)
+            self.showErrorAlert(title: error)
         }.disposed(by: disposeBag)
     }
     
-    func subscribeToLaegues() {
+    func subscribeToLeagues() {
         // tableView cells
         viewModel.leaguesObservable
             .bind(to: tableView.rx.items) { (tableView, row, item) in
@@ -60,10 +60,14 @@ class LeaguesViewController: UIViewController {
         tableView.rx.modelSelected(Competition.self)
             .subscribe(onNext: { [weak self] item in
                 guard let self = self else { return }
-                self.viewModel.goToTeams(id: 0)
+                self.viewModel.goToTeams(league: item)
             })
             .disposed(by: disposeBag)
     }
+    
+//    deinit {
+//        viewModel.dispose()
+//    }
 }
 
 // MARK: - UITableViewDelegate

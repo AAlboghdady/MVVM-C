@@ -16,14 +16,15 @@ enum StoryBoards: String {
 
 enum StoryBoardVCIds: String {
     // leagues
-    case leaguesVC = "LeaguesViewController"
+    case leagues = "LeaguesViewController"
+    case leagueView = "LeagueView"
     
     // teams
-    case leagueView = "LeagueView"
-    case teamsVC = "TeamsViewController"
+    case teams = "TeamsViewController"
+    case teamView = "TeamView"
     
     // team
-    case teamVC = "TeamViewController"
+    case team = "TeamViewController"
 }
 
 

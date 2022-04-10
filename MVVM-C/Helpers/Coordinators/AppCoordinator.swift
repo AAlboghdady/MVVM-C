@@ -9,8 +9,7 @@ import UIKit
 
 class AppCoordinator: Coordinator {
     
-    var parentCoordinator: Coordinator?
-    var children: [Coordinator] = []
+    static let shared = AppCoordinator(navigationController: UINavigationController())
     var navigationController: UINavigationController
     
     init(navigationController : UINavigationController) {
@@ -23,41 +22,42 @@ class AppCoordinator: Coordinator {
     }
     
     func goToLeagues() {
-        // Instantiate Logi
-        let leaguesVC = UIStoryboard.instantiate(.leagues, .leaguesVC) as! LeaguesViewController
-        // Instantiate LoginViewModel
+        // Instantiate LeaguesViewController
+        let leaguesVC = UIStoryboard.instantiate(.leagues, .leagues) as! LeaguesViewController
+        // Instantiate ViewModel
         let leaguesViewModel = LeaguesViewModel.init()
-        // Set the Coordinator to the ViewModel
-        leaguesViewModel.coordinator = self
         // Set the ViewModel to ViewController
         leaguesVC.viewModel = leaguesViewModel
         // Push it.
         navigationController.pushViewController(leaguesVC, animated: true)
+        Constants.uWindow?.rootViewController = navigationController
+        Constants.uWindow?.makeKeyAndVisible()
     }
     
-    func goToTeams(id: Int) {
-        // Instantiate Logi
-        let leaguesVC = UIStoryboard.instantiate(.leagues, .leaguesVC) as! TeamsViewController
-        // Instantiate LoginViewModel
-        let leaguesViewModel = LeaguesViewModel.init()
-        // Set the Coordinator to the ViewModel
-        leaguesViewModel.coordinator = self
+    func goToTeams(league: Competition) {
+        // Instantiate TeamsViewController
+        let teamsVC = UIStoryboard.instantiate(.teams, .teams) as! TeamsViewController
+        teamsVC.league = league
+        // Instantiate ViewModel
+        let teamsViewModel = TeamsViewModel.init()
+        // Set the id to the ViewController
+        teamsViewModel.competitionId = league.id!
+        // Set the ViewModel to ViewController
+        teamsVC.viewModel = teamsViewModel
+        // Push it.
+        navigationController.pushViewController(teamsVC, animated: true)
+    }
+    
+    func goToTeam(id: Int) {
+        // Instantiate TeamsViewController
+        let teamVC = UIStoryboard.instantiate(.team, .team) as! TeamViewController
+        // Instantiate ViewModel
+        let teamViewModel = LeaguesViewModel.init()
+        // Set the id to the ViewController
+//        teamsViewModel.competitionId = id
         // Set the ViewModel to ViewController
 //        leaguesVC.viewModel = leaguesViewModel
         // Push it.
-        navigationController.pushViewController(leaguesVC, animated: true)
-    }
-    
-    func goToTeam() {
-        // Instantiate Logi
-        let leaguesVC = UIStoryboard.instantiate(.leagues, .leaguesVC) as! TeamsViewController
-        // Instantiate LoginViewModel
-        let leaguesViewModel = LeaguesViewModel.init()
-        // Set the Coordinator to the ViewModel
-        leaguesViewModel.coordinator = self
-        // Set the ViewModel to ViewController
-//        leaguesVC.viewModel = leaguesViewModel
-        // Push it.
-        navigationController.pushViewController(leaguesVC, animated: true)
+        navigationController.pushViewController(teamVC, animated: true)
     }
 }

@@ -12,13 +12,25 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
+
 struct CompetitionsResponse : Codable {
+    
 	let count : Int?
 	let competitions : [Competition]?
+    let errorCode : Int?
+    let message : String?
 
 	enum CodingKeys: String, CodingKey {
-
 		case count = "count"
 		case competitions = "competitions"
+        case errorCode = "errorCode"
+        case message = "message"
 	}
+    
+    init(count: Int?, competitions: [Competition]?, errorCode: Int?, message: String?) {
+        self.count = count
+        self.competitions = competitions
+        self.errorCode = errorCode
+        self.message = message
+    }
 }

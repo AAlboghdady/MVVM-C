@@ -12,19 +12,25 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct CurrentSeason : Codable {
-	let id : Int?
-	let startDate : String?
-	let endDate : String?
-	let currentMatchday : Int?
-	let winner : String?
+
+struct TeamsResponse : Codable {
+    
+	let competition : Competition?
+	let teams : [Team]?
+    let errorCode : Int?
+    let message : String?
 
 	enum CodingKeys: String, CodingKey {
-
-		case id = "id"
-		case startDate = "startDate"
-		case endDate = "endDate"
-		case currentMatchday = "currentMatchday"
-		case winner = "winner"
+		case competition = "competition"
+		case teams = "teams"
+        case errorCode = "errorCode"
+        case message = "message"
 	}
+    
+    init(competition: Competition?, teams: [Team]?, errorCode: Int?, message: String?) {
+        self.competition = competition
+        self.teams = teams
+        self.errorCode = errorCode
+        self.message = message
+    }
 }
