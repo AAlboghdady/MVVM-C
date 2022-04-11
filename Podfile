@@ -20,6 +20,9 @@ target 'MVVM-C' do
   
   #loading indicator
   pod 'ProgressHUD'
+  
+  #Database
+  pod 'GRDB.swift'
 
   target 'MVVM-CTests' do
     inherit! :search_paths

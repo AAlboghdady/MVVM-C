@@ -10,8 +10,8 @@ import Alamofire
 
 enum ApiManager {
     case competitions
-    case teams(competitionId: Int)
-    case matches(teamId: Int)
+    case teams(competitionId: Int64)
+    case matches(teamId: Int64)
 }
 
 // MARK: - TargetType Protocol Implementation

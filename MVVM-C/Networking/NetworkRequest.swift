@@ -19,7 +19,7 @@ class NetworkRequest {
                                   success: @escaping(_ model: T)->(), failure:@escaping (_ errors:String)->()) {
         switch Reachability().connectionStatus() {
         case .unknown, .offline:
-            self.showConnectionErrorAlert()
+            failure("No internet connection")
         case .online(.wwan), .online(.wiFi):
             let provider = MoyaProvider<ApiManager>()
             provider.rx.request(function)
@@ -31,11 +31,5 @@ class NetworkRequest {
                     failure(error.localizedDescription)
                 }.disposed(by: disposeBag)
         }
-    }
-    
-    func showConnectionErrorAlert() {
-        let alert = UIAlertController(title: "Error", message: "No internet connection", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        Constants.uWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
 }

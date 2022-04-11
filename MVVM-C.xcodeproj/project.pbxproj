@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		154897B22803A26F00B83292 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154897B12803A26F00B83292 /* Persistence.swift */; };
 		15623ED62802585F004CDC28 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15623ED52802585F004CDC28 /* UIViewControllerExtension.swift */; };
 		15623ED828025AC9004CDC28 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15623ED728025AC9004CDC28 /* Loading.swift */; };
 		156B731F27FFA07100085E5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B731E27FFA07100085E5D /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		158FA1CD280266EA00AD290F /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158FA1C7280266EA00AD290F /* Match.swift */; };
 		158FA1CF2802687700AD290F /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158FA1CE2802687700AD290F /* MatchView.swift */; };
 		158FA1D12802728200AD290F /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158FA1D02802728200AD290F /* TeamViewModel.swift */; };
+		158FA1D72803312D00AD290F /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158FA1D62803312D00AD290F /* AppDatabase.swift */; };
 		15B093EE27FFAC7700A54E13 /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B093ED27FFAC7700A54E13 /* LeaguesViewController.swift */; };
 		15B093F027FFAC8600A54E13 /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B093EF27FFAC8600A54E13 /* TeamsViewController.swift */; };
 		15B093F227FFAC8B00A54E13 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B093F127FFAC8B00A54E13 /* TeamViewController.swift */; };
@@ -74,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		154897B12803A26F00B83292 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		15623ED52802585F004CDC28 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		15623ED728025AC9004CDC28 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		156B731B27FFA07100085E5D /* MVVM-C.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVVM-C.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +100,7 @@
 		158FA1C7280266EA00AD290F /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		158FA1CE2802687700AD290F /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
 		158FA1D02802728200AD290F /* TeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewModel.swift; sourceTree = "<group>"; };
+		158FA1D62803312D00AD290F /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		15B093ED27FFAC7700A54E13 /* LeaguesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaguesViewController.swift; sourceTree = "<group>"; };
 		15B093EF27FFAC8600A54E13 /* TeamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
 		15B093F127FFAC8B00A54E13 /* TeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +248,15 @@
 				158FA1C6280266EA00AD290F /* FullTime.swift */,
 			);
 			path = TeamResponse;
+			sourceTree = "<group>";
+		};
+		158FA1D52803312500AD290F /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				158FA1D62803312D00AD290F /* AppDatabase.swift */,
+				154897B12803A26F00B83292 /* Persistence.swift */,
+			);
+			path = DataBase;
 			sourceTree = "<group>";
 		};
 		15B093B627FFAB3D00A54E13 /* Modules */ = {
@@ -457,6 +470,7 @@
 		15B0945527FFB55C00A54E13 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				158FA1D52803312500AD290F /* DataBase */,
 				15B0945827FFB5D900A54E13 /* Coordinators */,
 				15B094612801A95D00A54E13 /* Constants.swift */,
 				15623ED728025AC9004CDC28 /* Loading.swift */,
@@ -760,6 +774,7 @@
 				158FA1C8280266EA00AD290F /* HomeTeam.swift in Sources */,
 				156B731F27FFA07100085E5D /* AppDelegate.swift in Sources */,
 				15B093F027FFAC8600A54E13 /* TeamsViewController.swift in Sources */,
+				158FA1D72803312D00AD290F /* AppDatabase.swift in Sources */,
 				15B0947E2801D4A300A54E13 /* TeamsResponse.swift in Sources */,
 				156B732127FFA07100085E5D /* SceneDelegate.swift in Sources */,
 				15B0946C2801AF7F00A54E13 /* NetworkRequest.swift in Sources */,
@@ -779,6 +794,7 @@
 				158FA1BF280266BF00AD290F /* MatchCell.swift in Sources */,
 				15B094822801D5CD00A54E13 /* TeamsViewModel.swift in Sources */,
 				15B093F227FFAC8B00A54E13 /* TeamViewController.swift in Sources */,
+				154897B22803A26F00B83292 /* Persistence.swift in Sources */,
 				158FA1CC280266EA00AD290F /* FullTime.swift in Sources */,
 				15B0946A2801ABBF00A54E13 /* ApiManager.swift in Sources */,
 				15B094802801D4A300A54E13 /* Team.swift in Sources */,

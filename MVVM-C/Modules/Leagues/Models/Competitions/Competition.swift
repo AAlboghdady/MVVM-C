@@ -12,10 +12,11 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
+import GRDB
 
 struct Competition : Codable {
     
-	let id : Int?
+    var id : Int64?
 	let name : String?
 
 	enum CodingKeys: String, CodingKey {
@@ -23,7 +24,7 @@ struct Competition : Codable {
 		case name = "name"
 	}
     
-    init(id: Int?, name: String?) {
+    init(id: Int64?, name: String?) {
         self.id = id
         self.name = name
     }
@@ -31,5 +32,17 @@ struct Competition : Codable {
     init() {
         id = 0
         name = ""
+    }
+}
+
+// MARK: - Persistence
+
+/// Make Competition a Codable Record.
+///
+/// See <https://github.com/groue/GRDB.swift/blob/master/README.md#records>
+extension Competition: FetchableRecord, MutablePersistableRecord {
+    /// Updates a player id after it has been inserted in the database.
+    mutating func didInsert(with rowID: Int64, for column: String?) {
+        id = rowID
     }
 }

@@ -11,7 +11,7 @@ import RxCocoa
 class TeamViewModel: NSObject {
     
     private let disposeBag = DisposeBag()
-    var teamId = 0
+    var teamId: Int64 = 0
     
     var loadingBehavior = BehaviorRelay<Bool>(value: false)
     

@@ -25,7 +25,7 @@ class LeaguesViewController: UIViewController {
         
         subscribeToLeagues()
         
-        viewModel.loadLeagues()
+        viewModel.getAllLeaguesFromDataBase()
     }
     
     func setupViews() {

@@ -12,20 +12,42 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
+import GRDB
 
 struct Team : Codable {
     
-	let id : Int?
+    var id : Int64?
 	let name : String?
+    var competitionId : Int64?
 
 	enum CodingKeys: String, CodingKey {
-
 		case id = "id"
-		case name = "name"
+        case name = "name"
+        case competitionId = "competitionId"
 	}
     
-    init(id: Int?, name: String?) {
+    init(id: Int64?, name: String?, competitionId: Int64?) {
         self.id = id
         self.name = name
+        self.competitionId = competitionId
+    }
+}
+
+// MARK: - Persistence
+
+/// Make Team a Codable Record.
+///
+/// See <https://github.com/groue/GRDB.swift/blob/master/README.md#records>
+extension Team: FetchableRecord, MutablePersistableRecord {
+    /// Updates a player id after it has been inserted in the database.
+    mutating func didInsert(with rowID: Int64, for column: String?) {
+        id = rowID
+    }
+}
+
+extension Team {
+    // The request for all teams in a competition
+    static func filter(competitionId: Int64) -> QueryInterfaceRequest<Team> {
+        return filter(Column("competitionId") == competitionId)
     }
 }

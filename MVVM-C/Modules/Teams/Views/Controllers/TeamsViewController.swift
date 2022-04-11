@@ -28,7 +28,7 @@ class TeamsViewController: UIViewController {
         
         subscribeToTeams()
         
-        viewModel.loadTeams()
+        viewModel.getAllTeamsFromDataBase()
     }
     
     func setupViews() {
