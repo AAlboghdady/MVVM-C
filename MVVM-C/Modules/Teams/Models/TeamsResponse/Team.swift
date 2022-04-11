@@ -17,18 +17,21 @@ import GRDB
 struct Team : Codable {
     
     var id : Int64?
-	let name : String?
+    let name : String?
+    let crestUrl : String?
     var competitionId : Int64?
-
+    
 	enum CodingKeys: String, CodingKey {
 		case id = "id"
         case name = "name"
+        case crestUrl = "crestUrl"
         case competitionId = "competitionId"
 	}
     
-    init(id: Int64?, name: String?, competitionId: Int64?) {
+    init(id: Int64?, name: String?, crestUrl: String?, competitionId: Int64?) {
         self.id = id
         self.name = name
+        self.crestUrl = crestUrl
         self.competitionId = competitionId
     }
 }

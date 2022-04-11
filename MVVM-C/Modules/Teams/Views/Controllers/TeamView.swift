@@ -19,8 +19,7 @@ class TeamView: UIViewController {
 
     func setupViews(name: String, image: String) {
         nameLabel.text = name
-        if let url = URL(string: image) {
-            Nuke.loadImage(with: url, into: teamImageView)
-        }
+        guard let url = URL(string: image) else { return }
+        Nuke.loadImage(with: url, into: teamImageView)
     }
 }

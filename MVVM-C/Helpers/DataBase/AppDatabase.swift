@@ -49,6 +49,7 @@ final class AppDatabase {
             try db.create(table: "team") { t in
                 t.column("id", .integer).primaryKey()
                 t.column("name", .text).notNull()
+                t.column("crestUrl", .text)
                 t.column("competitionId", .integer).notNull()
             }
         }
