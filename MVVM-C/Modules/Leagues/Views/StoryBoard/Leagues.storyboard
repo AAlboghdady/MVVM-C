@@ -72,6 +72,7 @@
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bJP-Xh-QZf">
                                                         <rect key="frame" x="11" y="0.0" width="20" height="20"/>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="bJP-Xh-QZf" secondAttribute="height" id="Bai-zX-nCT"/>
                                                             <constraint firstAttribute="width" constant="20" id="Ffi-Ac-0jw"/>
@@ -90,6 +91,7 @@
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i4f-JU-6i6">
                                                         <rect key="frame" x="11" y="0.0" width="20" height="20"/>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="Kar-p8-gY1"/>
                                                             <constraint firstAttribute="width" secondItem="i4f-JU-6i6" secondAttribute="height" id="cJR-4m-tzZ"/>
