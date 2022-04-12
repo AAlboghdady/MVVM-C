@@ -20,8 +20,8 @@ struct Match : Codable {
 	let utcDate : String?
 	let status : String?
 	let score : Score?
-	let homeTeam : HomeTeam?
-	let awayTeam : AwayTeam?
+	let homeTeam : Team?
+	let awayTeam : Team?
 
 	enum CodingKeys: String, CodingKey {
 		case id = "id"

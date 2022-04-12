@@ -26,11 +26,4 @@ struct TeamsResponse : Codable {
         case errorCode = "errorCode"
         case message = "message"
 	}
-    
-    init(competition: Competition?, teams: [Team]?, errorCode: Int?, message: String?) {
-        self.competition = competition
-        self.teams = teams
-        self.errorCode = errorCode
-        self.message = message
-    }
 }

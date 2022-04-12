@@ -66,4 +66,3 @@ extension ApiManager: TargetType {
         return Data()
     }
 }
-

@@ -27,13 +27,6 @@ struct Team : Codable {
         case crestUrl = "crestUrl"
         case competitionId = "competitionId"
 	}
-    
-    init(id: Int64?, name: String?, crestUrl: String?, competitionId: Int64?) {
-        self.id = id
-        self.name = name
-        self.crestUrl = crestUrl
-        self.competitionId = competitionId
-    }
 }
 
 // MARK: - Persistence

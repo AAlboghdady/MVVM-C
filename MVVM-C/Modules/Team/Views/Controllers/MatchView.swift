@@ -40,11 +40,13 @@ class MatchView: UIViewController {
             statusLabel.isHidden = true
             scheduledDateLabel.isHidden = true
         }
-        if let url = URL(string: match.homeTeam?.name ?? "") {
-            Nuke.loadImage(with: url, into: homeTeamImageView)
-        }
-        if let url = URL(string: match.awayTeam?.name ?? "") {
-            Nuke.loadImage(with: url, into: awayTeamImageView)
-        }
+        // HINT: - no images found in the matches for the home and the away teams api service
+        // so i commented the loading code
+//        if let url = URL(string: match.homeTeam?.name ?? "") {
+//            Nuke.loadImage(with: url, into: homeTeamImageView)
+//        }
+//        if let url = URL(string: match.awayTeam?.name ?? "") {
+//            Nuke.loadImage(with: url, into: awayTeamImageView)
+//        }
     }
 }

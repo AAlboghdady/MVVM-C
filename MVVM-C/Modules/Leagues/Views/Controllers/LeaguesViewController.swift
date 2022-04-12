@@ -64,10 +64,6 @@ class LeaguesViewController: UIViewController {
             })
             .disposed(by: disposeBag)
     }
-    
-//    deinit {
-//        viewModel.dispose()
-//    }
 }
 
 // MARK: - UITableViewDelegate

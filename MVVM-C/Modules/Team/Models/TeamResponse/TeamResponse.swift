@@ -24,10 +24,4 @@ struct TeamResponse : Codable {
         case errorCode = "errorCode"
         case message = "message"
 	}
-    
-    init(matches: [Match]?, errorCode: Int?, message: String?) {
-        self.matches = matches
-        self.errorCode = errorCode
-        self.message = message
-    }
 }

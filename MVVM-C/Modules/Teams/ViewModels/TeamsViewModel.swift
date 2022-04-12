@@ -47,6 +47,7 @@ class TeamsViewModel: NSObject {
     }
     
     func saveTeams(teams: [Team]) {
+        // saving teams to the database
         DispatchQueue.global(qos: .background).async {
             for i in 0..<teams.count {
                 var team = teams[i]

@@ -28,6 +28,7 @@ class MatchCell: UITableViewCell {
     }
     
     func addMatchView(match: Match) {
+        // loading the MatchView inside the cell
         let controller = UIStoryboard.instantiate(.team, .matchView) as! MatchView
         controller.view.frame = CGRect(x: 8, y: 8, width: contentView.frame.size.width - 16, height: contentView.frame.size.height - 16)
         controller.setupViews(match: match)

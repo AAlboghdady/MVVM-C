@@ -28,6 +28,7 @@ class LeagueCell: UITableViewCell {
     }
     
     func addLeagueView(league: Competition) {
+        // loading the LeagueView inside the cell
         let controller = UIStoryboard.instantiate(.leagues, .leagueView) as! LeagueView
         controller.view.frame = CGRect(x: 8, y: 8, width: contentView.frame.size.width - 16, height: contentView.frame.size.height - 16)
         controller.setupViews(name: league.name ?? "", image: "")

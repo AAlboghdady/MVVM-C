@@ -46,6 +46,7 @@ class LeaguesViewModel: NSObject {
     }
     
     func saveLeagues(leagues: [Competition]) {
+        // saving leagues to the database
         DispatchQueue.global(qos: .background).async {
             for i in 0..<leagues.count {
                 var league = leagues[i]
@@ -82,9 +83,5 @@ class LeaguesViewModel: NSObject {
     
     func goToTeams(league: Competition) {
         AppCoordinator.shared.goToTeams(league: league)
-    }
-    
-    func dispose() {
-        
     }
 }

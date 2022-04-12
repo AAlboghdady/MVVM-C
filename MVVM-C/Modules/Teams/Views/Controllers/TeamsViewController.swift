@@ -40,6 +40,7 @@ class TeamsViewController: UIViewController {
     }
     
     func addLeagueView(league: Competition) {
+        // loading the TeamView at the top view
         let controller = UIStoryboard.instantiate(.leagues, .leagueView) as! LeagueView
         controller.view.frame = CGRect(x: 8, y: 8, width: leagueView.frame.size.width - 16, height: leagueView.frame.size.height - 16)
         controller.setupViews(name: league.name ?? "", image: "")

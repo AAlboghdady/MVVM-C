@@ -24,11 +24,6 @@ struct Competition : Codable {
 		case name = "name"
 	}
     
-    init(id: Int64?, name: String?) {
-        self.id = id
-        self.name = name
-    }
-    
     init() {
         id = 0
         name = ""

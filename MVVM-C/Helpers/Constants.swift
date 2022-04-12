@@ -8,10 +8,7 @@
 import UIKit
 
 struct Constants {
-    static let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    static let uDefaults = UserDefaults.standard
     static var uWindow: UIWindow?
-    static let reachability = Reachability()
     
     static let baseURL = "http://api.football-data.org/"
     static let APIURL = "\(Constants.baseURL)v2/"

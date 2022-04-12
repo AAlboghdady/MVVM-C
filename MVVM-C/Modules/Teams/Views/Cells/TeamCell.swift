@@ -28,6 +28,7 @@ class TeamCell: UITableViewCell {
     }
     
     func addTeamView(team: Team) {
+        // loading the TeamView inside the cell
         let controller = UIStoryboard.instantiate(.teams, .teamView) as! TeamView
         controller.view.frame = CGRect(x: 8, y: 8, width: contentView.frame.size.width - 16, height: contentView.frame.size.height - 16)
         controller.setupViews(name: team.name ?? "", image: team.crestUrl ?? "")

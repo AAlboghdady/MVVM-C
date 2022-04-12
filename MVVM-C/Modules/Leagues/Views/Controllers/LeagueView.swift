@@ -19,7 +19,9 @@ class LeagueView: UIViewController {
 
     func setupViews(name: String, image: String) {
         nameLabel.text = name
-        guard let url = URL(string: image) else { return }
-        Nuke.loadImage(with: url, into: leagueImageView)
+        // HINT: - no images found in the competitions api service
+        // so i commented the loading code
+//        guard let url = URL(string: image) else { return }
+//        Nuke.loadImage(with: url, into: leagueImageView)
     }
 }
